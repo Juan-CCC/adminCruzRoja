@@ -1,71 +1,19 @@
-import React, {useEffect, useState} from 'react'
-import './TableUsers.css'
+import React,{useState} from 'react'
+import './TableAmbulancias.css'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { FiSearch } from "react-icons/fi";
 
+const TableAmbulancias = () => {
 
-const TableUsers = () => {
-
-    /*const [users, setUsers]= useState([{
-        id:'ID_Usuario',apellido:'apellido_Paterno',apellidoM:'apellido_Materno',email:'correo',
-        contrasena:'contraseña',telefono:'telefono', registro:'fecha_Registro', inicio:'fecha_Sesion',
-        estadoU:'estado_Usuario',estadoC:'estado_Cuenta',bloqueo:'fecha_Bloqueo',token:'token',fechaT:'fecha_Token'
-
-    }])*/
-    const [users,setUsers]=useState([]);
-
-    /*const URLUser='https://api-rest-cr.vercel.app/user/';
-
-    const peticionGet= async()=>{
-        const response= await fetch(URLUser)
-        const data= await response.json();
-            console.log(data)
-    }*/
-
-
-    /*const peticionGet= async()=>{
-        await fetch(URLUser)
-        .then(response=>{response.json()})
-        console.log(response)
-    }*/
-    
-    
-        
-    
-    /*useEffect(()=>{
-        peticionGet();
-    },[])*/
-    
-    /*const showData= async()=>{
-        const response= await fetch(URLUser,
-            {
-                method: "GET",
-                credentials: 'include',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  id:'ID_Usuario',
-                  nombre: 'nombre',
-                  apellido:'apellido_Paterno',
-                  apellido_Materno: 'ApellidoM',
-                  correo: email,
-                  telefono: telefono,
-                  contraseña: password
-                }),
-              }
-            )
-        const data= await response.json();
-        setUsers(data)
-    }*/
-    
-    
-
-    
+    const [data, setData] = useState([
+        { id:1, name:'juan', apellido:'cruz', apellidoM:'cifuentes',email:'john@example.com',contrasena:'juan123',registro:'12-03-2024',inicio:'01-03-2024',estado:'Activa' },
+        { id:2, name:'carlos', apellido:'cifuentes', apellidoM:'cruz',email:'jane@example.com',contrasena:'carlos123',registro:'12-03-2024',inicio:'02-03-2024',estado:'Inactiva' },
+        { id:3, name:'angel', apellido:'hernandez', apellidoM:'manuel',email:'alice@example.com',contrasena:'angel123',registro:'12-03-2024',inicio:'03-03-2024',estado:'Bloqueada' },
+    ]);
 
   return (
     <div>
-        <h1 className='title_emergencias'>Usuarios Registrados</h1>
+      <h1 className='title_emergencias'>Registro de Citas</h1>
         <div className='contenedor_buscador'>
             <div className='contedor_search'>
                 <FiSearch  className='icon_search'/>
@@ -76,40 +24,34 @@ const TableUsers = () => {
             <table className='tabla_emergencias'>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
-                        <th>Correo</th>
-                        <th>Contraseña</th>
-                        <th>Telefono</th>
-                        <th>Fecha de Registro</th>
-                        <th>Inicio de Sesion</th>
-                        <th>Estado del Usuario </th>
-                        <th>Estado de Cuenta</th>
-                        <th>Fecha de Bloqueo</th>
-                        <th>Token</th>
-                        <th>Fecha del Token</th>
+                        <th>Inicio de Traslado</th>
+                        <th>Escala</th>
+                        <th>Destino</th>
+                        <th>Motivo</th>
+                        <th>Material </th>
+                        <th>Material Especifico</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Asociado</th>
+                        <th>Tipo de Contratacion</th>
                     </tr>
                 </thead>
                 <tbody>
-                {users.map((item) => (
+                {data.map((item) => (
                     <tr key={item.id}>
                         <td>{item.id}</td>
-                        <td>{item.nombre}</td>
+                        <td>{item.name}</td>
                         <td>{item.apellido}</td>
                         <td>{item.apellidoM}</td>
                         <td>{item.email}</td>
                         <td>{item.contrasena}</td>
-                        <td>{item.telefono}</td>
                         <td>{item.registro}</td>
                         <td>{item.inicio}</td>
-                        <td>{item.estadoU}</td>
-                        <td>{item.estadoC}</td>
-                        <td>{item.registro}</td>
-                        <td>{item.bloqueo}</td>
-                        <td>{item.token}</td>
-                        <td>{item.fechaT}</td>
+                        <td>{item.estado}</td>
                     </tr>
                 ))}
                 </tbody>
@@ -202,4 +144,4 @@ const TableUsers = () => {
   )
 }
 
-export default TableUsers
+export default TableAmbulancias

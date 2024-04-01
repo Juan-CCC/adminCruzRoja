@@ -24,15 +24,16 @@ const TableEmergencias = () => {
             <table className='tabla_emergencias'>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
+                        <th>Fecha</th>
                         <th>Nombre</th>
-                        <th>Primer Apellido</th>
-                        <th>Segundo Apellido</th>
-                        <th>Correo</th>
-                        <th>Contraseña</th>
-                        <th>Fecha de Registro</th>
-                        <th>Inicio de Sesion</th>
-                        <th>Estado de la Cuenta</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Lugar de Servicio</th>
+                        <th>Sexo</th>
+                        <th>Edad</th>
+                        <th>Tipo de Servicio</th>
+                        <th>Responsable</th>
                     </tr>
                 </thead>
                 <tbody>

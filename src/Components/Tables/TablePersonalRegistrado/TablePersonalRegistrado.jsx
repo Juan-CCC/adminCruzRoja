@@ -24,15 +24,19 @@ const TablePersonalRegistrado = () => {
             <table className='tabla_emergencias'>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Nombre</th>
-                        <th>Primer Apellido</th>
-                        <th>Segundo Apellido</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
                         <th>Correo</th>
                         <th>Contraseña</th>
+                        <th>Delegacion</th>
+                        <th>Estado</th>
+                        <th>Tipo de Asociado</th>
+                        <th>Vigencia</th>
                         <th>Fecha de Registro</th>
                         <th>Inicio de Sesion</th>
-                        <th>Estado de la Cuenta</th>
+                        <th>Cargo</th>
                     </tr>
                 </thead>
                 <tbody>
