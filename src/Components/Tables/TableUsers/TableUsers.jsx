@@ -6,62 +6,20 @@ import { FiSearch } from "react-icons/fi";
 
 const TableUsers = () => {
 
-    /*const [users, setUsers]= useState([{
-        id:'ID_Usuario',apellido:'apellido_Paterno',apellidoM:'apellido_Materno',email:'correo',
-        contrasena:'contraseña',telefono:'telefono', registro:'fecha_Registro', inicio:'fecha_Sesion',
-        estadoU:'estado_Usuario',estadoC:'estado_Cuenta',bloqueo:'fecha_Bloqueo',token:'token',fechaT:'fecha_Token'
-
-    }])*/
     const [users,setUsers]=useState([]);
 
-    /*const URLUser='https://api-rest-cr.vercel.app/user/';
+    const URLUser='http://localhost:3000/user';
 
     const peticionGet= async()=>{
         const response= await fetch(URLUser)
         const data= await response.json();
-            console.log(data)
-    }*/
+        setUsers(data) 
+    }
+    
 
-
-    /*const peticionGet= async()=>{
-        await fetch(URLUser)
-        .then(response=>{response.json()})
-        console.log(response)
-    }*/
-    
-    
-        
-    
-    /*useEffect(()=>{
+    useEffect(()=>{
         peticionGet();
-    },[])*/
-    
-    /*const showData= async()=>{
-        const response= await fetch(URLUser,
-            {
-                method: "GET",
-                credentials: 'include',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  id:'ID_Usuario',
-                  nombre: 'nombre',
-                  apellido:'apellido_Paterno',
-                  apellido_Materno: 'ApellidoM',
-                  correo: email,
-                  telefono: telefono,
-                  contraseña: password
-                }),
-              }
-            )
-        const data= await response.json();
-        setUsers(data)
-    }*/
-    
-    
-
-    
+    },[])
 
   return (
     <div>
@@ -81,8 +39,8 @@ const TableUsers = () => {
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
                         <th>Correo</th>
-                        <th>Contraseña</th>
                         <th>Telefono</th>
+                        <th>Contraseña</th>
                         <th>Fecha de Registro</th>
                         <th>Inicio de Sesion</th>
                         <th>Estado del Usuario </th>
@@ -93,23 +51,22 @@ const TableUsers = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {users.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.nombre}</td>
-                        <td>{item.apellido}</td>
-                        <td>{item.apellidoM}</td>
-                        <td>{item.email}</td>
-                        <td>{item.contrasena}</td>
-                        <td>{item.telefono}</td>
-                        <td>{item.registro}</td>
-                        <td>{item.inicio}</td>
-                        <td>{item.estadoU}</td>
-                        <td>{item.estadoC}</td>
-                        <td>{item.registro}</td>
-                        <td>{item.bloqueo}</td>
-                        <td>{item.token}</td>
-                        <td>{item.fechaT}</td>
+                {users.map((user) => (
+                    <tr key={user.ID_Usuario}>
+                        <td>{user.ID_Usuario}</td>
+                        <td>{user.nombre}</td>
+                        <td>{user.apellidoP}</td>
+                        <td>{user.apellidoM}</td>
+                        <td>{user.correo}</td>
+                        <td>{user.telefono}</td>
+                        <td>{user.contrasena}</td>
+                        <td>{user.fecha_Registro}</td>
+                        <td>{user.fecha_Sesion}</td>
+                        <td>{user.estado_Usuario}</td>
+                        <td>{user.estado_Cuenta}</td>
+                        <td>{user.fecha_bloqueo}</td>
+                        <td>{user.token}</td>
+                        <td>{user.fecha_token}</td>
                     </tr>
                 ))}
                 </tbody>

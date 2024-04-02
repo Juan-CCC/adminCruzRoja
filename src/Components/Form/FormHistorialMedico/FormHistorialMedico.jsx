@@ -21,7 +21,10 @@ const FormHistorialMedico = () => {
   const [datosHistorial, setDatosHistorial] = useState({
     diabetes: '',
     hipertension: '',
-    alergias:''
+    alergias:'',
+    motivo:'',
+    diacnosticoIngreso:'',
+    diacnosticoEgreso:''
   });
   //---------------------------------------Paginacion------------------------------------------
   const cambiarPagina = (nuevaPagina) => {
@@ -265,14 +268,18 @@ const FormHistorialMedico = () => {
                 <div className='sub-titulo'><h1>Antecedentes Patologicos</h1></div>
                 <div className='grup-input'>
                   <div><label htmlFor="" className='label-name'>Diabetes:</label></div>
-                  <div><input 
-                        type="text" 
-                        name="nombreC" 
-                        id="" 
-                        className='input-text'
-                        value={datosHistorial.nombre} 
-                        onChange={handleChangeDatosHistorial}
-                      />
+                  <div><select 
+                          value={datosHistorial.diabetes} 
+                          name='diabetes' 
+                          onChange={handleChangeDatosHistorial} 
+                          className='input-text'>
+                          <option value="">Seleccione una opción</option>
+                          <option value="ADM">Administrador</option>
+                          <option value="LIC">Lic. en Enfermeria</option>
+                          <option value="MED">Médico</option>
+                          <option value="SOC">Socorrista</option>
+                          <option value="TEM">Paramedicos</option>
+                        </select>
                   </div>
                   <div className='msg_error'>
                       
@@ -297,10 +304,10 @@ const FormHistorialMedico = () => {
                   <div><label htmlFor="" className='label-name'>Alérgico a Medicamento:</label></div>
                   <div><input 
                         type="text" 
-                        name="apellidoPaternoC" 
+                        name="alergias" 
                         id="" 
                         className='input-text'
-                        value={datosHistorial.apellidoPaterno} 
+                        value={datosHistorial.alergias} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>
@@ -313,10 +320,10 @@ const FormHistorialMedico = () => {
                   <div><label htmlFor="" className='label-name'>Motivo de Ingreso:</label></div>
                   <div><input 
                         type="text" 
-                        name="nombreC" 
+                        name="motivo" 
                         id="" 
                         className='input-text'
-                        value={datosHistorial.nombre} 
+                        value={datosHistorial.motivo} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>
@@ -328,10 +335,10 @@ const FormHistorialMedico = () => {
                   <div><label htmlFor="" className='label-name'>Diacnostico de Ingreso:</label></div>
                   <div><input 
                         type="text" 
-                        name="apellidoPaternoC" 
+                        name="diacnosticoIngreso" 
                         id="" 
                         className='input-text'
-                        value={datosHistorial.apellidoPaterno} 
+                        value={datosHistorial.diacnosticoIngreso} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>
@@ -343,10 +350,10 @@ const FormHistorialMedico = () => {
                   <div><label htmlFor="" className='label-name'>Diacnostico Egreso:</label></div>
                   <div><input 
                         type="text" 
-                        name="apellidoPaternoC" 
+                        name="diacnosticoEgreso" 
                         id="" 
                         className='input-text'
-                        value={datosHistorial.apellidoPaterno} 
+                        value={datosHistorial.diacnosticoEgreso} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>

@@ -52,11 +52,11 @@
     color: #fff;
 }
 .tabla_emergencias th{
-    font-size: 12px;
+    font-size: 11px;
 }
 .tabla_emergencias th,
 .tabla_emergencias td{
-    
+    font-size: 11px;
     padding: 5px ;
 }
 .tabla_emergencias tbody tr{
