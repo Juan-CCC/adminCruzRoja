@@ -46,7 +46,7 @@ const routes = [
   },
   {
     path: "/HistorialMedico",
-    name: "Historial Medico",
+    name: "Registro Historial",
     icon: <RiFolderHistoryFill />,
   },
   {

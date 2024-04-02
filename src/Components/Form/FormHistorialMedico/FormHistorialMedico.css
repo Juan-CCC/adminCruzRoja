@@ -1,6 +1,6 @@
 .form_Historial_Madico{
     background: #ffffff;
-    width: 900px;
+    width: 1130px;
     height: 500px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
@@ -12,18 +12,18 @@
     padding: 15px;
     justify-items: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr  ;
     border-radius: 10px;
 }
 .title_Form_HM{
-    grid-column: span 3;
+    grid-column: span 4;
 }
 .title_Form_HM h1{
     font-size: 30px;
 }
 .sub-titulo{
-    grid-column: span 3;
-    width: 90%;
+    grid-column: span 4;
+    width: 98%;
 }
 .sub-titulo h1{
     font-size: 20px;
@@ -39,6 +39,16 @@
     outline: none;
     border-radius: 5px;
     height: 30px;
+}
+.conte-registrarHM{
+    grid-column: span 4;
+}
+.btnRegistrar{
+    background: #FF0040;
+    width: 180px;
+    height: 30px;
+    border-radius: 5px;
+    color: #fff;
 }
 .cont_Paginacion{
     width: 100%;
