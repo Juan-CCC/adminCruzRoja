@@ -51,9 +51,13 @@
     text-align: center;
     color: #fff;
 }
+.tabla_emergencias tbody td{
+    text-align: center;
+}
 .tabla_emergencias th,
 .tabla_emergencias td{
     padding: 5px ;
+    font-size: 14px;
 }
 .tabla_emergencias tbody tr{
     border-bottom: 1px solid #ddd;

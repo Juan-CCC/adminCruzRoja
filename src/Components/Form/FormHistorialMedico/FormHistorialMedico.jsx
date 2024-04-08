@@ -5,26 +5,28 @@ const FormHistorialMedico = () => {
 
   const [paginaActual, setPaginaActual] = useState(1);
   const [datosPersonales, setDatosPersonales] = useState({
-    curp:'',
     nombre: '',
     apellidoPaterno: '',
     apellidoMaterno: '',
-    telefono:'',
+    edad:'',
     municipio: '',
     colonia: '',
     calle: '',
+    telefono:'',
     nombre2: '',
     apellidoPaterno2: '',
     apellidoMaterno2: '',
     telefono2: ''
   });
   const [datosHistorial, setDatosHistorial] = useState({
-    diabetes: '',
-    hipertension: '',
+    nombreAntecedente: '',
+    fechaDiacnosticada: '',
+    tratamiento:'',
     alergias:'',
     motivo:'',
     diacnosticoIngreso:'',
-    diacnosticoEgreso:''
+    diacnosticoEgreso:'',
+    medicamentos:''
   });
   //---------------------------------------Paginacion------------------------------------------
   const cambiarPagina = (nuevaPagina) => {
@@ -51,7 +53,20 @@ const FormHistorialMedico = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes manejar el envío del formulario completo
-    console.log('Datos del formulario:', { datosPersonales, domicilio, contactoEmergencia });
+    //const data= new FormData();
+    
+
+    fetch("http://localhost:3000/nuevoHistorialMedico",
+          {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                      'Content-Type': 'application/json' // Especifica que el cuerpo de la solicitud es JSON
+                     },
+                        body: JSON.stringify(datosPersonales,datosHistorial) // Convierte el objeto 'valores' a JSON
+                    })
+    
+    console.log('Datos del formulario:', { datosPersonales, datosHistorial });
   };
 
   return (
@@ -62,21 +77,7 @@ const FormHistorialMedico = () => {
             <div className='form_Grid_HM'>
               {/*<div className='title_Form_HM'><h1>Registro de Historial Medico</h1></div>*/}
                 <div className='sub-titulo'><h1>Datos Personales</h1></div>
-                <div className='grup-input'>
-                  <div><label htmlFor="" className='label-name'>CURP:</label></div>
-                  <div><input 
-                        type="text" 
-                        name="curp" 
-                        id="" 
-                        className='input-text' 
-                        value={datosPersonales.curp} 
-                        onChange={handleChangeDatosPersonales}
-                      />
-                  </div>
-                  <div className='msg_error'>
-                      
-                  </div>
-                </div>
+                
                 <div className='grup-input'>
                   <div><label htmlFor="" className='label-name'>Nombre:</label></div>
                   <div><input 
@@ -123,13 +124,13 @@ const FormHistorialMedico = () => {
                   </div>
                 </div>
                 <div className='grup-input'>
-                  <div><label htmlFor="" className='label-name'>Telefono:</label></div>
+                  <div><label htmlFor="" className='label-name'>Edad:</label></div>
                   <div><input 
                         type="text" 
-                        name="telefono" 
-                        id="" 
+                        name="edad" 
+                        id="edad" 
                         className='input-text'
-                        value={datosPersonales.telefono} 
+                        value={datosPersonales.edad} 
                         onChange={handleChangeDatosPersonales}
                       />
                   </div>
@@ -137,6 +138,7 @@ const FormHistorialMedico = () => {
                       
                   </div>
                 </div>
+                
                 
                 {/*<div className='sub-titulo'><h1>Domicilio</h1></div>*/}
                 <div className='grup-input'>
@@ -182,6 +184,21 @@ const FormHistorialMedico = () => {
                   </div>
                   <div className='msg_error'>
                     
+                  </div>
+                </div>
+                <div className='grup-input'>
+                  <div><label htmlFor="" className='label-name'>Telefono:</label></div>
+                  <div><input 
+                        type="text" 
+                        name="telefono" 
+                        id="" 
+                        className='input-text'
+                        value={datosPersonales.telefono} 
+                        onChange={handleChangeDatosPersonales}
+                      />
+                  </div>
+                  <div className='msg_error'>
+                      
                   </div>
                 </div>
                 
@@ -250,7 +267,7 @@ const FormHistorialMedico = () => {
                   <div><label htmlFor="" className='label-name'>Telefono:</label></div>
                   <div><input 
                         type="text" 
-                        name="telefono" 
+                        name="telefono2" 
                         id="" 
                         className='input-text'
                         value={datosPersonales.telefono2} 
@@ -267,32 +284,43 @@ const FormHistorialMedico = () => {
             <div className='form_Grid_HM'>
                 <div className='sub-titulo'><h1>Antecedentes Patologicos</h1></div>
                 <div className='grup-input'>
-                  <div><label htmlFor="" className='label-name'>Diabetes:</label></div>
-                  <div><select 
-                          value={datosHistorial.diabetes} 
-                          name='diabetes' 
-                          onChange={handleChangeDatosHistorial} 
-                          className='input-text'>
-                          <option value="">Seleccione una opción</option>
-                          <option value="ADM">Administrador</option>
-                          <option value="LIC">Lic. en Enfermeria</option>
-                          <option value="MED">Médico</option>
-                          <option value="SOC">Socorrista</option>
-                          <option value="TEM">Paramedicos</option>
-                        </select>
+                  <div><label htmlFor="" className='label-name'>Nombre del antecedente:</label></div>
+                  <div><input 
+                        type="text" 
+                        name="nombreAntecedente" 
+                        id="" 
+                        className='input-text'
+                        value={datosHistorial.nombreAntecedente} 
+                        onChange={handleChangeDatosHistorial}
+                      />
                   </div>
                   <div className='msg_error'>
                       
                   </div>
                 </div>
                 <div className='grup-input'>
-                  <div><label htmlFor="" className='label-name'>Hipertensión:</label></div>
+                  <div><label htmlFor="" className='label-name'>Fecha en la que fue diacnosticada:</label></div>
                   <div><input 
                         type="text" 
-                        name="apellidoPaternoC" 
+                        name="fechaDiacnosticada" 
                         id="" 
                         className='input-text'
-                        value={datosHistorial.apellidoPaterno} 
+                        value={datosHistorial.fechaDiacnosticada} 
+                        onChange={handleChangeDatosHistorial}
+                      />
+                  </div>
+                  <div className='msg_error'>
+                       
+                  </div>
+                </div>
+                <div className='grup-input'>
+                  <div><label htmlFor="" className='label-name'>Cuenta con algun Tratamiento:</label></div>
+                  <div><input 
+                        type="text" 
+                        name="tratamiento" 
+                        id="" 
+                        className='input-text'
+                        value={datosHistorial.tratamiento} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>
@@ -354,6 +382,21 @@ const FormHistorialMedico = () => {
                         id="" 
                         className='input-text'
                         value={datosHistorial.diacnosticoEgreso} 
+                        onChange={handleChangeDatosHistorial}
+                      />
+                  </div>
+                  <div className='msg_error'>
+                       
+                  </div>
+                </div>
+                <div className='grup-input'>
+                  <div><label htmlFor="" className='label-name'>Medicamentos recetados:</label></div>
+                  <div><input 
+                        type="text" 
+                        name="medicamentos" 
+                        id="" 
+                        className='input-text'
+                        value={datosHistorial.medicamentos} 
                         onChange={handleChangeDatosHistorial}
                       />
                   </div>

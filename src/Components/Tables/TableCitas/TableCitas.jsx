@@ -1,15 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import './TableCitas.css'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { FiSearch } from "react-icons/fi";
 
 const TableCitas = () => {
 
-    const [data, setData] = useState([
-        { id:1, name:'juan', apellido:'cruz', apellidoM:'cifuentes',email:'john@example.com',contrasena:'juan123',registro:'12-03-2024',inicio:'01-03-2024',estado:'Activa' },
-        { id:2, name:'carlos', apellido:'cifuentes', apellidoM:'cruz',email:'jane@example.com',contrasena:'carlos123',registro:'12-03-2024',inicio:'02-03-2024',estado:'Inactiva' },
-        { id:3, name:'angel', apellido:'hernandez', apellidoM:'manuel',email:'alice@example.com',contrasena:'angel123',registro:'12-03-2024',inicio:'03-03-2024',estado:'Bloqueada' },
-    ]);
+    const [citas,setCitas]=useState([]);
+
+    const URLUser='http://localhost:3000/citasRegistradas';
+
+    const peticionGet= async()=>{
+        const response= await fetch(URLUser)
+        const data= await response.json();
+        setCitas(data) 
+    }
+    
+    useEffect(()=>{
+        peticionGet();
+    },[])
 
   return (
     <div>
@@ -21,7 +29,7 @@ const TableCitas = () => {
             </div>
         </div>
         <div>
-            <table className='tabla_emergencias'>
+            <table className='tabla_citas'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -30,23 +38,23 @@ const TableCitas = () => {
                         <th>Apellido Materno</th>
                         <th>Fecha</th>
                         <th>Horario</th>
-                        <th>Id Usario</th>
                         <th>Tipo de Tramite</th>
-                        <th>Tipo de Servicio</th>
+                        <th>Estado</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                {data.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>{item.apellido}</td>
-                        <td>{item.apellidoM}</td>
-                        <td>{item.email}</td>
-                        <td>{item.contrasena}</td>
-                        <td>{item.registro}</td>
-                        <td>{item.inicio}</td>
+                {citas.map((item) => (
+                    <tr key={item.ID_Cita}>
+                        <td>{item.ID_Cita}</td>
+                        <td>{item.nombre}</td>
+                        <td>{item.apellido_Paterno}</td>
+                        <td>{item.apellido_Materno}</td>
+                        <td>{item.fecha}</td>
+                        <td>{item.horario}</td>
+                        <td>{item.ID_Servicio}</td>
                         <td>{item.estado}</td>
+                        
                     </tr>
                 ))}
                 </tbody>

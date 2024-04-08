@@ -1,15 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './TableEmergencias.css'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { FiSearch } from "react-icons/fi";
 
 const TableEmergencias = () => {
 
-    const [data, setData] = useState([
-        { id:1, name:'juan', apellido:'cruz', apellidoM:'cifuentes',email:'john@example.com',contrasena:'juan123',registro:'12-03-2024',inicio:'01-03-2024',estado:'Activa' },
-        { id:2, name:'carlos', apellido:'cifuentes', apellidoM:'cruz',email:'jane@example.com',contrasena:'carlos123',registro:'12-03-2024',inicio:'02-03-2024',estado:'Inactiva' },
-        { id:3, name:'angel', apellido:'hernandez', apellidoM:'manuel',email:'alice@example.com',contrasena:'angel123',registro:'12-03-2024',inicio:'03-03-2024',estado:'Bloqueada' },
-    ]);
+    const [emergencia,setEmergencia]=useState([]);
+
+    const URLUser='http://localhost:3000/Emergencias';
+
+    const peticionGet= async()=>{
+        const response= await fetch(URLUser)
+        const data= await response.json();
+        setEmergencia(data) 
+    }
+    
+    useEffect(()=>{
+        peticionGet();
+    },[])
 
   return (
     <div>
@@ -37,17 +45,18 @@ const TableEmergencias = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {data.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>{item.apellido}</td>
-                        <td>{item.apellidoM}</td>
-                        <td>{item.email}</td>
-                        <td>{item.contrasena}</td>
-                        <td>{item.registro}</td>
-                        <td>{item.inicio}</td>
-                        <td>{item.estado}</td>
+                {emergencia.map((item) => (
+                    <tr key={item.folio}>
+                        <td>{item.folio}</td>
+                        <td>{item.fecha}</td>
+                        <td>{item.nombre}</td>
+                        <td>{item.apellido_Paterno}</td>
+                        <td>{item.apellido_Materno}</td>
+                        <td>{item.lugar_Servicio}</td>
+                        <td>{item.sexo}</td>
+                        <td>{item.edad}</td>
+                        <td>{item.ID_Emergencia}</td>
+                        <td>{item.ID_Asociado}</td>
                     </tr>
                 ))}
                 </tbody>

@@ -31,16 +31,13 @@ const TableUsers = () => {
             </div>
         </div>
         <div>
-            <table className='tabla_emergencias'>
+            <table className='tabla_usuarios'>
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
-                        <th>Correo</th>
-                        <th>Telefono</th>
-                        <th>Contraseña</th>
                         <th>Fecha de Registro</th>
                         <th>Inicio de Sesion</th>
                         <th>Estado del Usuario </th>
@@ -57,9 +54,6 @@ const TableUsers = () => {
                         <td>{user.nombre}</td>
                         <td>{user.apellidoP}</td>
                         <td>{user.apellidoM}</td>
-                        <td>{user.correo}</td>
-                        <td>{user.telefono}</td>
-                        <td>{user.contrasena}</td>
                         <td>{user.fecha_Registro}</td>
                         <td>{user.fecha_Sesion}</td>
                         <td>{user.estado_Usuario}</td>

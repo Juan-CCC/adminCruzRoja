@@ -1,28 +1,27 @@
 import React,{useState,useEffect} from 'react'
-import './TablePersonalRegistrado.css'
+import './TableHistorialRegistrado.css'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { FiSearch } from "react-icons/fi";
 
-const TablePersonalRegistrado = () => {
+const TableHistorialRegistrado = () => {
 
-    const [personal,setPersonal]=useState([]);
+    const [historial,setHistorial]=useState([]);
 
-    const URLPersonal='http://localhost:3000/personal';
+    const URLUser='http://localhost:3000/historialMedico';
 
     const peticionGet= async()=>{
-        const response= await fetch(URLPersonal)
+        const response= await fetch(URLUser)
         const data= await response.json();
-        setPersonal(data) 
+        setHistorial(data) 
     }
     
-
     useEffect(()=>{
         peticionGet();
     },[])
 
   return (
     <div>
-      <h1 className='title_emergencias'>Personal Registrado</h1>
+      <h1 className='title_emergencias'>Historiales Medicos</h1>
         <div className='contenedor_buscador'>
             <div className='contedor_search'>
                 <FiSearch  className='icon_search'/>
@@ -30,41 +29,37 @@ const TablePersonalRegistrado = () => {
             </div>
         </div>
         <div>
-            <table className='tabla_personal'>
+            <table className='tabla_emergencias'>
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Fecha</th>
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
-                        <th>Fecha de Registro</th>
-                        <th>Fecha de Sesion</th>
-                        <th>Estado del Usuario</th>
-                        <th>Estado de Cuenta</th>
-                        <th>Fecha de Bloqueo</th>
-                        <th>Token</th>
-                        <th>Fecha del Token</th>
+                        <th>Telefono</th>
+                        <th>Nombre del Contacto</th>
+                        <th>Telefono de Emergencia</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                {personal.map((item) => (
-                    <tr key={item.ID_Asociado}>
-                        <td>{item.ID_Asociado}</td>
+                {historial.map((item) => (
+                    <tr key={item.ID_Historial}>
+                        <td>{item.ID_Historial}</td>
+                        <td>{item.fecha}</td>
                         <td>{item.nombre}</td>
-                        <td>{item.apellidoP}</td>
-                        <td>{item.apellidoM}</td>
-                        <td>{item.fecha_Registro}</td>
-                        <td>{item.fecha_Sesion}</td>
-                        <td>{item.estado_Usuario}</td>
-                        <td>{item.estado_Cuenta}</td>
-                        <td>{item.fecha_bloqueo}</td>
-                        <td>{item.token}</td>
-                        <td>{item.fecha_token}</td>
+                        <td>{item.apellido_Paterno}</td>
+                        <td>{item.apellido_Materno}</td>
+                        <td>{item.telefono}</td>
+                        <td>{item.nombre_Contacto}</td>
+                        <td>{item.telefono_Contacto}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
         </div>
+        <div className='btn_mostrarH'><a className='verMas' href="">Ver completo</a></div>
         <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
             <div className="flex flex-1 justify-between sm:hidden">
                 <a
@@ -152,4 +147,4 @@ const TablePersonalRegistrado = () => {
   )
 }
 
-export default TablePersonalRegistrado
+export default TableHistorialRegistrado

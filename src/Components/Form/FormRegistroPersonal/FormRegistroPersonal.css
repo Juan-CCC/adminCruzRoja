@@ -1,6 +1,6 @@
 .form-personal{
     background: #ffffff;
-    width: 850px;
+    width: 1120px;
     height: 450px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);    
@@ -12,10 +12,10 @@
     padding: 15px;
     justify-items: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .title_form{
-    grid-column: span 3;
+    grid-column: span 4;
 
 }
 .title_form h1{
@@ -26,7 +26,7 @@
 
 }
 .conte-registrar{
-    grid-column: span 3;
+    grid-column: span 4;
 }
 .input-text{
     width: 100%;

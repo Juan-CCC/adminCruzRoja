@@ -12,6 +12,8 @@ import Users from '../Pages/Users/Users'
 import RegistroPersonal from '../Pages/RegistroPersonal/RegistroPersonal'
 import PersonalRegistrado from '../Pages/PersonalRegistrado/PersonalRegistrado'
 import Emergencias from '../Pages/Emergencias/Emergencias'
+import HistorialRegistrado from '../Pages/HistorialRegistrado/HistorialRegistrado'
+import RegistrarEmergencia from '../Pages/RegistrarEmergencia/RegistrarEmergencia'
 
 export default function Router() {
   return (
@@ -23,8 +25,10 @@ export default function Router() {
           <Route path='/Citas' element={<Citas/>}/>
           <Route path='/ContratacionAmbulancias' element={<ContratacionAmbulancias/>}/>
           <Route path='/Donaciones' element={<Donaciones/>}/>
+          <Route path='/RegistrarEmergencias' element={<RegistrarEmergencia/>}/>
           <Route path='/Emergencias' element={<Emergencias/>}/>
           <Route path='/HistorialMedico' element={<HistorialMedico/>}/>
+          <Route path='/HistorialRegistrado' element={<HistorialRegistrado/>}/>
           <Route path='/RegistroPersonal' element={<RegistroPersonal/>}/>
           <Route path='/PersonalRegistrado' element={<PersonalRegistrado/>}/>
           <Route path='/SuministrosMedicos' element={<SuministrosMedicos/>}/>

@@ -40,6 +40,11 @@ const routes = [
     icon: <FaDonate />,
   },
   {
+    path: "/RegistrarEmergencias",
+    name: "Registrar Emergencia",
+    icon: <TbEmergencyBed />,
+  },
+  {
     path: "/Emergencias",
     name: "Emergencias",
     icon: <TbEmergencyBed />,
@@ -47,6 +52,11 @@ const routes = [
   {
     path: "/HistorialMedico",
     name: "Registro Historial",
+    icon: <RiFolderHistoryFill />,
+  },
+  {
+    path: "/HistorialRegistrado",
+    name: "Historial Registrado",
     icon: <RiFolderHistoryFill />,
   },
   {

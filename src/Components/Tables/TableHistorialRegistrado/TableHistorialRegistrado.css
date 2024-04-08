@@ -36,7 +36,7 @@
     
 }
 
-.tabla_personal{
+.tabla_emergencias{
     border-collapse: collapse;
     width: 100%;
     border-radius: 5px 5px 0 0;
@@ -44,28 +44,36 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     margin-top: 10px;
 }
-.tabla_personal thead tr {
+.tabla_emergencias thead tr {
     background:#DF013A;
     /*border: 1px solid #ddd;*/
     /*font-weight: bold;*/
     text-align: center;
     color: #fff;
 }
-.tabla_personal tbody td{
-    text-align: center;
-}
-.tabla_personal th,
-.tabla_personal td{
+.tabla_emergencias th,
+.tabla_emergencias td{
     padding: 5px ;
-    font-size: 12px;
 }
-.tabla_personal tbody tr{
+.tabla_emergencias tbody tr{
     border-bottom: 1px solid #ddd;
     background: #fff;
 }
-.tabla_personal tbody tr:hover{
+.tabla_emergencias tbody tr:hover{
     background: #F5A9BC;
 }
-.tabla_personal tbody tr:last-of-type{
+.tabla_emergencias tbody tr:last-of-type{
     border-bottom: 2px solid #DF013A;
+}
+.btn_mostrarH{
+    background: #DF013A;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+}
+.btn_mostrarH:hover{
+    background: #F5A9BC
+}
+.verMas{
+    color: #fff;
 }
