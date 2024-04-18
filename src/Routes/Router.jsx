@@ -14,6 +14,8 @@ import PersonalRegistrado from '../Pages/PersonalRegistrado/PersonalRegistrado'
 import Emergencias from '../Pages/Emergencias/Emergencias'
 import HistorialRegistrado from '../Pages/HistorialRegistrado/HistorialRegistrado'
 import RegistrarEmergencia from '../Pages/RegistrarEmergencia/RegistrarEmergencia'
+import FormFullHistorial from '../Components/Form/FormHistorialMedico/FormFullHistorial/FormFullHistorial'
+
 
 export default function Router() {
   return (
@@ -29,6 +31,7 @@ export default function Router() {
           <Route path='/Emergencias' element={<Emergencias/>}/>
           <Route path='/HistorialMedico' element={<HistorialMedico/>}/>
           <Route path='/HistorialRegistrado' element={<HistorialRegistrado/>}/>
+          <Route path='/HistorialRegistrado/HistorialCompleto/:ID_Historial' element={<FormFullHistorial/>}/>
           <Route path='/RegistroPersonal' element={<RegistroPersonal/>}/>
           <Route path='/PersonalRegistrado' element={<PersonalRegistrado/>}/>
           <Route path='/SuministrosMedicos' element={<SuministrosMedicos/>}/>

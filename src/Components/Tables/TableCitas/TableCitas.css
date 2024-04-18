@@ -69,3 +69,12 @@
 .tabla_citas tbody tr:last-of-type{
     border-bottom: 2px solid #DF013A;
 }
+.btn_mostrarC{
+    background: #DF013A;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+}
+.btn_mostrarC:hover{
+    background: #B40431
+}

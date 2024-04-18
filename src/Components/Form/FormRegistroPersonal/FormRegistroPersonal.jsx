@@ -89,18 +89,20 @@ const FormRegistroPersonal = () => {
 
                 //validacion para la contraseña
                 if(!valores.contrasena){
-                    errores.contrasena='Por favor ingresa un apellido'
+                    errores.contrasena='Por favor ingresa una contraseña'
                 } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.contrasena)){
-                    errores.contrasena='El apellido solo puede contener letras'
+                    errores.contrasena='La contraseña solo puede contener letras'
                 }
 
                 if(!valores.contrasena2){
-                    errores.contrasena2='Por favor ingresa un apellido'
+                    errores.contrasena2='Por favor ingresa una contraseña'
                 } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.contrasena2)){
-                    errores.contrasena2='El apellido solo puede contener letras'
+                    errores.contrasena2='La contraseña solo puede contener letras'
+                } else if(!valores.contrasena2==valores.contrasena){
+                    errores.contrasena2='las contraseñas no son igaules'
                 }
-
                 
+        
                 
                 return errores;
             }}
@@ -110,11 +112,11 @@ const FormRegistroPersonal = () => {
                 fetch("http://localhost:3000/registroPersonal",
                     {
                         method: "POST",
-                        credentials: 'include',
                         headers: {
                             'Content-Type': 'application/json' // Especifica que el cuerpo de la solicitud es JSON
                         },
-                        body: JSON.stringify(valores) // Convierte el objeto 'valores' a JSON
+                        body: JSON.stringify(valores),
+                        credentials: 'include', // Convierte el objeto 'valores' a JSON
                     })
                 resetForm();
 
